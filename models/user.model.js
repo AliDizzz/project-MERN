@@ -42,3 +42,7 @@ const userShema = new mongoose.Shema(
         timestamps: true,
     }
 )
+
+const UserModel = mongoose.model('user', userShema);
+
+module.exports = UserModel;
