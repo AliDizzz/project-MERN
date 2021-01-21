@@ -6,24 +6,25 @@ const userSchema = new mongoose.Schema(
     {
         pseudo: {
             type: String,
-            required: true,
-            minLength: 3,
-            maxLength: 55,
-            unique: true,
-            trim: true
+            required: true, // obligatire
+            minLength: 3,  // minimum 3 caractère
+            maxLength: 55, // maximum 55 caractère
+            unique: true, // strictement unique
+            trim: true // efface les espace de chaque coté
         },
         email: {
             type: String,
             required: true,
-            validate: [isEmail],
-            lowercase: true,
+            validate: [isEmail], // format valide d'un mail
+            lowercase: true, // converti en minuscule
+            unique: true,
             trim: true,
         },
         password: {
             type: String,
             required: true,
             max: 1024,
-            minLength: 6
+            minlength: 6
         },
         picture: {
             type: String,
