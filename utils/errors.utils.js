@@ -17,4 +17,16 @@ module.exports.signUpErrors = (err) => {
     errors.email = 'Cet email est déjà enregistré';
 
     return errors
+};
+
+module.exports.signInErrors = (err) => {
+    let errors = { email: '', password: ''}
+
+    if (err.message.includes("email")) // si err.message inclue " email " renvoie moi ça :
+    errors.email = "Email inconnu";
+
+    if (err.password.includes("password"))
+    errors.password = "Le mot de passe ne correspond pas"
+
+    return errors
 }
