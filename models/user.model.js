@@ -49,11 +49,11 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-//play function befor save into display: "block"
+// play function before save into display: 'block',
 userSchema.pre("save", async function (next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
-    next(); //une fois la fonction terminée, passe a la suite "next"  
+    next();
 });
 
 userSchema.statics.login = async function (email, password) {
@@ -68,7 +68,6 @@ userSchema.statics.login = async function (email, password) {
     throw Error('incorrect email')
 };
 
-
-const UserModel = mongoose.model('user', userSchema);
+const UserModel = mongoose.model("user", userSchema);
 
 module.exports = UserModel;
