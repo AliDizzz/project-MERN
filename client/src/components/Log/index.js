@@ -1,3 +1,4 @@
+import { sign } from 'crypto';
 import React, { useState } from 'react';
 import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
@@ -20,7 +21,7 @@ const Log = () => {
         <div className="connection-form">
             <div className="form-container">
                 <ul>
-                    <li onClick={handleModals} id="register" >S'inscrire</li>
+                    <li onClick={handleModals} id="register" className={signUpModal ? "active-btn" : null} >S'inscrire</li>
                     <li onClick={handleModals} id="login" >Se connecter</li>
                 </ul>
                 {signUpModal && <SignUpForm />}
