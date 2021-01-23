@@ -1,5 +1,5 @@
-import React from 'react';
-import Log from '../components/Log';
+import React from "react";
+import Log from "../components/Log";
 
 const Profil = () => {
     return (
