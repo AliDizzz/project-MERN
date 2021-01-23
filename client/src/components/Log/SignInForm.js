@@ -19,6 +19,16 @@ const SignInForm = () => {
             onChange={(e) => setEmail(e.target.value)} 
             value={email}
             />
+            <br/>
+            <label htmlFor="password"> Mot de passe </label>
+            <br/>
+            <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            onChange={(e) => setPassword(e.target.value)} 
+            value={password}
+            />
             <input 
             type="submit" 
             value="Se connecter" 
