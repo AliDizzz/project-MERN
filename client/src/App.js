@@ -3,9 +3,10 @@ import Routes from "./components/Routes";
 import { UidContext } from "./components/AppContext";
 import axios from "axios";
 
+
 const App = () => {
   const [uid, setUid] = useState(null);
-  const dispatch = useDispatch();
+  
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -21,8 +22,8 @@ const App = () => {
     };
     fetchToken();
 
-    if (uid) dispatch(getUser(uid));
-  }, [uid, dispatch]);
+    
+  }, [uid]);
 
   return (
     <UidContext.Provider value={uid}>
