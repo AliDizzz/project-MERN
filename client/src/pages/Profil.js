@@ -3,7 +3,6 @@ import Log from "../components/Log";
 import { UidContext } from "../components/AppContext";
 import UpdateProfil from "../components/Profil/UpdateProfil";
 
-
 const Profil = () => {
     const uid = useContext(UidContext);
 
