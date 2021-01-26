@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import UploadImg from "./UploadImg";
 import { updateBio } from "../../actions/user.actions";
 import { dateParser } from "../Utils";
+import FollowHandler from "./FollowHandler";
 
 const UpdateProfil = () => {
     const [bio, setBio] = useState("");
     const [updateForm, setUpdateForm] = useState(false);
     const userData = useSelector((state) => state.userReducer);
     const dispatch = useDispatch();
+    const [followingPopup, setFollowingPopup] = useState(false);
+    const [followersPopup, setFollowersPopup] = useState(false);
 
     const handleUpdate = () => {
         dispatch(updateBio(userData._id, bio));
@@ -50,9 +53,16 @@ const UpdateProfil = () => {
                     </div>
                     <h4>Membre depuis le : </h4>
                     <span> {dateParser(userData.createdAt)}</span>
-                    </div>
+                    <h5 onClick={() => setFollowingPopup(true)}>
+                        Abonnements : {userData.following ? userData.following.length : ""}
+                    </h5>
+                    <h5 onClick={() => setFollowersPopup(true)}>
+                        Abonnés : {userData.followers ? userData.followers.length : ""}
+                    </h5>
                 </div>
             </div>
+            
+        </div>
     );
 };
 
