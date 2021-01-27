@@ -25,6 +25,7 @@
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.7",
     "react-router-dom": "^5.2.0",
+    "reactjs-popup": "^2.0.4",
     "validator": "^13.5.2"
   }
 }
