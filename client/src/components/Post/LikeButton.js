@@ -3,7 +3,7 @@ import { UidContext } from "../AppContext";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { useDispatch } from 'react-redux';
-import { likePost } from "../../actions/post.actions";
+import { likePost, unlikePost } from "../../actions/post.actions";
 
 const LikeButton = ({ post }) => {
     const [liked, setLiked] = useState(false);
@@ -16,12 +16,13 @@ const LikeButton = ({ post }) => {
     };
 
     const unlike = () => {
-
+        dispatch(unlikePost(post._id, uid))
+    setLiked(false);
     };
 
     useEffect(() => {
         if (post.likers.includes(uid)) setLiked(true);
-
+        else setLiked(false);
     }, [uid, post.likers, liked]);
 
     return (
