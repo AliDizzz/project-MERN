@@ -6,13 +6,12 @@ import { updateBio } from "../../actions/user.actions";
 import { dateParser } from "../Utils";
 import FollowHandler from "./FollowHandler";
 
-
-
 const UpdateProfil = () => {
     const [bio, setBio] = useState("");
     const [updateForm, setUpdateForm] = useState(false);
     const userData = useSelector((state) => state.userReducer);
     const usersData = useSelector((state) => state.usersReducer);
+    const error = useSelector((state) => state.errorReducer.userError);
     const dispatch = useDispatch();
     const [followingPopup, setFollowingPopup] = useState(false);
     const [followersPopup, setFollowersPopup] = useState(false);
@@ -25,12 +24,14 @@ const UpdateProfil = () => {
     return (
         <div className="profil-container">
             <LeftNav />
-            <h1> Profil de {userData.pseudo} </h1>
+            <h1> Profil de {userData.pseudo}</h1>
             <div className="update-container">
                 <div className="left-part">
                     <h3>Photo de profil</h3>
                     <img src={userData.picture} alt="user-pic" />
                     <UploadImg />
+                    <p>{error.maxSize}</p>
+                    <p>{error.format}</p>
                 </div>
                 <div className="right-part">
                     <div className="bio-update">
@@ -54,8 +55,7 @@ const UpdateProfil = () => {
                             </>
                         )}
                     </div>
-                    <h4>Membre depuis le : </h4>
-                    <span> {dateParser(userData.createdAt)}</span>
+                    <h4>Membre depuis le : {dateParser(userData.createdAt)}</h4>
                     <h5 onClick={() => setFollowingPopup(true)}>
                         Abonnements : {userData.following ? userData.following.length : ""}
                     </h5>
