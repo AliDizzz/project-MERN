@@ -34,6 +34,11 @@ app.get('/jwtid', requireAuth, (req, res) => {
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
+//Deploiement
+app.get('/', (req, res) => {
+    res.send('hello to ali yildiz app');
+});
+
 // server
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`);
