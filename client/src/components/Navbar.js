@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { UidContext } from "./AppContext";
 import Logout from "./Log/Logout";
 
+
 const Navbar = () => {
     const uid = useContext(UidContext);
     const userData = useSelector((state) => state.userReducer)
@@ -22,7 +23,8 @@ const Navbar = () => {
                 {/* si uid existe fait moi ça */}
                 {uid ? (
                     <ul>
-                        <li></li>
+                        <li>
+                        </li>
                         <li className="welcome">
                             <NavLink exact to="/profil">
                                 <h5>Bienvenue {userData.pseudo}</h5>
